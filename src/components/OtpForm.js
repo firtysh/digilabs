@@ -38,7 +38,7 @@ export default function OtpForm({ setOtp,username }) {
                 <div className="flex items-center justify-evenly mb-8">
                     {[1, 2, 3, 4, 5, 6].map((i, index) => {
                         return (
-                            <input key={index} type="text" maxLength={1} id={i.toString()} inputMode="numeric" autoComplete="one-time-code" pattern="\d{1}" className="caret-primary border-primary border outline-none h-14 w-12 m-1 focus:shadow-[0_0px_0px_4px_rgba(0,85,255,0.2)]  text-center rounded-xl" onChange={handleChange} />
+                            <input key={index} type="text" autoFocus={i===1} maxLength={1} id={i.toString()} inputMode="numeric" autoComplete="one-time-code" pattern="\d{1}" className="caret-primary border-primary border outline-none h-14 w-12 m-1 focus:shadow-[0_0px_0px_4px_rgba(0,85,255,0.2)]  text-center rounded-xl" onChange={handleChange} />
                         )
                     })}
                 </div>
