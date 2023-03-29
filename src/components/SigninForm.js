@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 
 
-export default function SigninForm({ setOtp }) {
+export default function SigninForm({ setOtp,username,setUsername }) {
     const [visible, setVisible] = useState(false);
     function handleSubmit(e) {
         e.preventDefault()
@@ -16,6 +16,9 @@ export default function SigninForm({ setOtp }) {
     const toggleVisibility = () => {
         setVisible(!visible);
     };
+    const handleChange = (e) => {
+        setUsername(e.target.value)
+    }
     return (
         <>
             <h1 className="text-[28px] leading-8 font-bold text-black mb-8 md:mb-10">
@@ -23,7 +26,7 @@ export default function SigninForm({ setOtp }) {
             </h1>
             <form className="" onSubmit={handleSubmit}>
                 <div className="flex justify-between mb-6 bg-black bg-opacity-5 rounded-xl p-1 border border-transparent hover:border-primary hover:border hover:bg-white overflow-hidden md:mb-8">
-                    <input required type="text" className="rounded-xl bg-transparent px-4 py-2 outline-none text-base text-black flex-1 w-1/2" />
+                    <input required type="text" className="rounded-xl bg-transparent px-4 py-2 outline-none text-base text-black flex-1 w-1/2" value={username} onChange={handleChange}/>
                     <div className="flex  bg-white text-gray items-center text-center px-4 py-3 rounded-lg hover:bg-primary hover:bg-opacity-5 hover:text-primary">
                         @heads.design
                         <GoChevronDown className="ml-1" />

@@ -11,6 +11,7 @@ import Carousel2 from '@/components/Carousel2';
 
 export default function Login() {
     const [otp, setOtp] = useState(false);
+    const [username, setUsername] = useState('');
     return (
         <>
             <Head>
@@ -37,7 +38,7 @@ export default function Login() {
                                 transition={{ duration: .3, ease: "easeInOut" }}
                                 exit={{ opacity: 0 }}
                             >
-                                <SigninForm setOtp={setOtp} />
+                                <SigninForm setOtp={setOtp} username={username} setUsername={setUsername} />
                             </motion.div>) : (
                                 <motion.div
                                     className='absolute w-full lg:top-1/2 lg:-translate-y-1/2'
@@ -47,7 +48,7 @@ export default function Login() {
                                     transition={{ duration: .3, ease: "easeInOut" }}
                                     exit={{ opacity: 0,  }}
                                 >
-                                    <OtpForm setOtp={setOtp} />
+                                    <OtpForm setOtp={setOtp} username={username} />
                                 </motion.div>
                             )}
                         </AnimatePresence>
